@@ -1,0 +1,15 @@
+.card-li {
+    border: #9590A8 solid 2px;
+    width: 200px;
+    height: 300px;
+    display: flex;  
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+.card__img {
+    width: 150px;
+    height: 200px;
+
+}

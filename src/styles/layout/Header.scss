@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #BBCBCB;
+   
+}
+
+.glasses {
+    background-image: url('../../images/glasses.png');
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+}
+.glasses:hover {
+    transform: rotate(360deg);
+    transition-duration: 1350ms;
+
+    
+}
