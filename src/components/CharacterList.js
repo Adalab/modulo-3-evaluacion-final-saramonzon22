@@ -1,5 +1,7 @@
 import PjItem from "./PjItem";
 import '../styles/layout/CharacterList.scss';
+import { Link, Route, Routes } from 'react-router-dom';
+import Detail from './CharacterDetail';
 
 
 function CharacterList(props) {
@@ -9,11 +11,14 @@ function CharacterList(props) {
             <PjItem character={pj} key={index} />
         );
     });
+
     return (
         <section className="list">
-            <ul className="cards">
-                {hpPjElements}
-            </ul>
+            <Link to='/CharacterDetail/:CharacterId'>
+                <ul className="cards">
+                    {hpPjElements}
+                </ul>
+            </Link>
         </section >
     );
 };

@@ -1,15 +1,20 @@
 .card-li {
     border: #9590A8 solid 2px;
-    width: 200px;
+    width: 200px;  
     height: 300px;
     display: flex;  
     flex-direction: column;  
     justify-content: center;
     align-items: center;
+    background: rgb(11,57,84);
+    background: linear-gradient(180deg, rgba(11,57,84,1) 0%, rgba(254,255,254,1) 100%);
+    gap: 10px;
     border-radius: 25px;
+
 }
 .card__img {
     width: 150px;
     height: 200px;
-
+    border-radius: 10px;
+    
 }
