@@ -26,6 +26,7 @@ function App() {
     species: '',
   });
   const [searchName, setSearchName] = useState(localStorage.get('filterName') || '');
+  const [selectHouse, setSelecHouse] = useState('Gryffindor');
 
 
 
@@ -35,6 +36,12 @@ function App() {
     .filter((searchPj) => {
       return searchPj.name.toLowerCase().includes(searchName.toLowerCase())
 
+    })
+    .filter((searchPj) => {
+      if (selectHouse === '') {
+        return true;
+      }
+      return searchPj.house === selectHouse;
     })
     .map((pj, index) => {
       const notImage = (image) => {
@@ -59,6 +66,9 @@ function App() {
   const handleSearchName = (value) => {
     setSearchName(value)
   };
+  const handleSearchSelect = (ev) => {
+    setSelecHouse(ev.target.value)
+  }
 
   useEffect(() => {
     hpData().then((dataFromHp) => {
@@ -71,7 +81,7 @@ function App() {
     <div>
       <Routes>
         <>
-          <Route path='/' element={<><Header />< Structure dataPj={dataPj} handleSearchName={handleSearchName} searchName={searchName} drawHtml={drawHtml} />  </>}></Route>
+          <Route path='/' element={<><Header />< Structure dataPj={dataPj} handleSearchName={handleSearchName} searchName={searchName} drawHtml={drawHtml} handleSearchSelect={handleSearchSelect} />  </>}></Route>
           <Route path='/CharacterDetail/:CharacterId' element={<Detail dataPj={dataPj} drawHtml={drawHtml} />}></Route>
         </>
       </Routes>

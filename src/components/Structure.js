@@ -15,12 +15,12 @@ function Structure(props) {
                 <label id='name' name='name'>search for character</label>
                 <input className='search-bar' type='text' placeholder='Write your fav!' onChange={handleSearch} value={props.searchName}></input>
                 <label id='name' name='name'>search for house</label>
-                <select name='house' id='house' className='select-search'>
-                    <option value='all' selected>All</option>
+                <select name='house' id='house' className='select-search' onChange={props.handleSearchSelect}>
                     <option value='Gryffindor'>Gryffindor</option>
                     <option value='Hufflepuff'>Hufflepuff </option>
                     <option value='Ravenclaw'>Ravenclaw</option>
                     <option value='Slytherin'>Slytherin</option>
+
 
                 </select>
             </form>
