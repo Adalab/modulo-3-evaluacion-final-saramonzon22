@@ -16,7 +16,7 @@ function CharacterList(props) {
         <section className="list">
             <Link to='/CharacterDetail/:CharacterId'>
                 <ul className="cards">
-                    {hpPjElements}
+                    {hpPjElements}{props.drawHtml}
                 </ul>
             </Link>
         </section >

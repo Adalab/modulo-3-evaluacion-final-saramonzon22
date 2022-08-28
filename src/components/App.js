@@ -1,6 +1,8 @@
 import '../styles/App.scss';
+import errorImage from '../images/defaultImg.jpg';
 // api
 import hpData from '../services/hpData';
+import localStorage from '../services/localStorage';
 // componentes
 import Structure from './Structure';
 import PjItem from '../components/PjItem';
@@ -11,6 +13,7 @@ import Detail from './CharacterDetail';
 import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useLocation, matchPath } from 'react-router';
+import { useParams } from 'react-router-dom';
 
 
 
@@ -18,12 +21,44 @@ import { useLocation, matchPath } from 'react-router';
 function App() {
 
   const [dataPj, setDataPj] = useState([]);
+  const [userSearch, setUserSearch] = useState({
+    name: '',
+    species: '',
+  });
+  const [searchName, setSearchName] = useState(localStorage.get('filterName') || '');
 
-  const { pathname } = useLocation();
-  const routeData = matchPath('CharacterDetail/:CharacterId', pathname);
-  const CharacterId = routeData !== null ? routeData.params.CharacterId : '';
-  console.log(routeData);
 
+
+
+  const drawHtml = dataPj
+
+    .filter((searchPj) => {
+      return searchPj.name.toLowerCase().includes(searchName.toLowerCase())
+
+    })
+    .map((pj, index) => {
+      const notImage = (image) => {
+        return image === '' ? errorImage : pj.picture
+      };
+      return <li key={index}>
+        <img
+          className="card__img"
+          src={notImage(pj.picture)}
+          alt={`Foto de ${pj.name}`}
+          title={`Foto de ${pj.name}`}></img>
+        <h4 className="card__title">{pj.name}</h4>
+        <p className="card__description">{`${pj.species}/ ${pj.gender}`}</p>
+      </li>
+    });
+
+  useEffect(() => {
+    localStorage.set('filterName', searchName);
+  }, [searchName]);
+
+  // filtros
+  const handleSearchName = (value) => {
+    setSearchName(value)
+  };
 
   useEffect(() => {
     hpData().then((dataFromHp) => {
@@ -31,12 +66,13 @@ function App() {
     })
   }, []);
 
+
   return (
     <div>
       <Routes>
         <>
-          <Route path='/' element={<><Header />< Structure dataPj={dataPj} /> </>}></Route>
-          <Route path='/CharacterDetail/:CharacterId' element={<Detail dataPj={dataPj} CharacterId={CharacterId} />}></Route>
+          <Route path='/' element={<><Header />< Structure dataPj={dataPj} handleSearchName={handleSearchName} searchName={searchName} drawHtml={drawHtml} />  </>}></Route>
+          <Route path='/CharacterDetail/:CharacterId' element={<Detail dataPj={dataPj} drawHtml={drawHtml} />}></Route>
         </>
       </Routes>
 

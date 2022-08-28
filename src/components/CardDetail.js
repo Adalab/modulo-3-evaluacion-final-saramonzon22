@@ -1,11 +1,8 @@
 import errorImage from '../images/defaultImg.jpg';
-import { useParams } from 'react-router-dom';
+import '../styles/layout/CardDetail.scss';
 
 function Detail(props) {
-    const PjDetail = () => {
 
-        const { CharacterId } = useParams();
-    }
     const notImage = (image) => {
         return image === '' ? errorImage : props.character.picture;
     };
@@ -19,16 +16,19 @@ function Detail(props) {
     }
 
     return (
-        <div><h4 className="card__title">{props.character.name}</h4>
+        <div className='one-card'>
             <img
                 className="card__img"
                 src={notImage(props.character.picture)}
                 alt={`Foto de ${props.character.name}`}
                 title={`Foto de ${props.character.name}`}></img>
-            <p className="card__description">{`${props.character.gender}`} </p>
-            <p className="card__description">{`${props.character.species}`} </p>
-            <p className="card__description">{pjAlive(props.character.alive)}</p>
-            <p className="card__description">{`${props.character.house}`} </p>
+            <div>
+                <h4 className="title">{props.character.name}</h4>
+                <p className="card__description">{`${props.character.gender}`} </p>
+                <p className="card__description">{`${props.character.species}`} </p>
+                <p className="card__description">{pjAlive(props.character.alive)}</p>
+                <p className="card__description">{`${props.character.house}`} </p>
+            </div>
 
         </div>
     )

@@ -9,19 +9,7 @@ function PjItem(props) {
     };
 
 
-    return (
-
-        <li className="card-li">
-            <img
-                className="card__img"
-                src={notImage(props.character.picture)}
-                alt={`Foto de ${props.character.name}`}
-                title={`Foto de ${props.character.name}`}></img>
-            <h4 className="card__title">{props.character.name}</h4>
-            <p className="card__description">{`${props.character.species}/ ${props.character.gender}`}</p>
-        </li>
-    );
-
+    return (<>{props.drawHtml}</>)
 }
 
-export default PjItem;
+export default PjItem; 

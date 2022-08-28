@@ -4,11 +4,16 @@ import '../styles/layout/Page.scss';
 
 
 function Structure(props) {
+
+    const handleSearch = (ev) => {
+        props.handleSearchName(ev.currentTarget.value);
+    };
+
     return (
         <main className='page'>
-            <section className='search-filter'>
+            <form className='search-filter'>
                 <label id='name' name='name'>search for character</label>
-                <input className='search-bar' type='text' placeholder='Write your fav!'></input>
+                <input className='search-bar' type='text' placeholder='Write your fav!' onChange={handleSearch} value={props.searchName}></input>
                 <label id='name' name='name'>search for house</label>
                 <select name='house' id='house' className='select-search'>
                     <option value='all' selected>All</option>
@@ -18,8 +23,8 @@ function Structure(props) {
                     <option value='Slytherin'>Slytherin</option>
 
                 </select>
-            </section>
-            <CharacterList dataPj={props.dataPj} />
+            </form>
+            <CharacterList dataPj={props.dataPj} drawHtml={props.drawHtml} />
         </main>
     )
 }
