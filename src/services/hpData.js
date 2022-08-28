@@ -9,7 +9,7 @@ const hpData = () => {
                     gender: pj.gender,
                     picture: pj.image,
                     species: pj.species,
-                    house: pj.house,
+                    house: pj.house || "none",
                     alive: pj.alive,
                 };
 

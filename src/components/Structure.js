@@ -20,8 +20,7 @@ function Structure(props) {
                     <option value='Hufflepuff'>Hufflepuff </option>
                     <option value='Ravenclaw'>Ravenclaw</option>
                     <option value='Slytherin'>Slytherin</option>
-
-
+                    <option value='none'>Without house</option>
                 </select>
             </form>
             <CharacterList dataPj={props.dataPj} drawHtml={props.drawHtml} />

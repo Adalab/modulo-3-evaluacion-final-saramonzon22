@@ -47,7 +47,7 @@ function App() {
       const notImage = (image) => {
         return image === '' ? errorImage : pj.picture
       };
-      return <li key={index}>
+      return <li key={index} className='card-li'>
         <img
           className="card__img"
           src={notImage(pj.picture)}
