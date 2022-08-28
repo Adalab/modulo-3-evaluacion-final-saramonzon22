@@ -12,9 +12,9 @@ function Structure(props) {
     return (
         <main className='page'>
             <form className='search-filter'>
-                <label id='name' name='name'>search for character</label>
+                <label id='name' name='name' className='text-search'>search for character</label>
                 <input className='search-bar' type='text' placeholder='Write your fav!' onChange={handleSearch} value={props.searchName}></input>
-                <label id='name' name='name'>search for house</label>
+                <label id='name' name='name' className='text-search'>search for house</label>
                 <select name='house' id='house' className='select-search' onChange={props.handleSearchSelect}>
                     <option value='Gryffindor'>Gryffindor</option>
                     <option value='Hufflepuff'>Hufflepuff </option>

@@ -34,8 +34,12 @@ function App() {
   const drawHtml = dataPj
 
     .filter((searchPj) => {
-      return searchPj.name.toLowerCase().includes(searchName.toLowerCase())
-
+      if (searchPj.name.toLowerCase() === null) {
+        return (<main><p>No coincidence</p></main>)
+      }
+      else {
+        return searchPj.name.toLowerCase().includes(searchName.toLowerCase())
+      }
     })
     .filter((searchPj) => {
       if (selectHouse === '') {

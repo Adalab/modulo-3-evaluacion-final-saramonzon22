@@ -1,7 +1,7 @@
 import PjItem from "./PjItem";
 import '../styles/layout/CharacterList.scss';
-import { Link, Route, Routes } from 'react-router-dom';
 import Detail from './CharacterDetail';
+import { Link, Route, Routes } from 'react-router-dom';
 
 
 function CharacterList(props) {

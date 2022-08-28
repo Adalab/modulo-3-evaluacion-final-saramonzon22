@@ -17,6 +17,7 @@
 .glasses:hover {
     transform: rotate(360deg);
     transition-duration: 1350ms;
-
-    
+}
+.title {
+    text-transform: capitalize;
 }
