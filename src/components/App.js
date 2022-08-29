@@ -34,41 +34,22 @@ function App() {
 
   const characterId = dataPath !== null ? dataPath.params.characterId : null;
   const characterFound = dataPj.find((pj) => {
-    return pj.id === characterId;
+    return pj.id === parseInt(characterId);
   });
 
-  const drawHtml = dataPj
+  const filtersFunction = dataPj
 
     .filter((searchPj) => {
-      if (searchPj.name.toLowerCase() === null) {
-        return (<main><p>No coincidence</p></main>)
-      }
-      else {
-        return searchPj.name.toLowerCase().includes(searchName.toLowerCase())
-      }
+      return searchPj.name.toLowerCase().includes(searchName.toLowerCase())
     })
+
     .filter((searchPj) => {
       if (selectHouse === '') {
         return true;
       }
-      return searchPj.house === selectHouse;
-    })
-    .map((pj, index) => {
-      const notImage = (image) => {
-        return image === '' ? errorImage : pj.picture
-      };
-      return <li key={index} className='card-li'>
-        <Link to={`/character/${pj.id}`}>
-          <img
-            className="card__img"
-            src={notImage(pj.picture)}
-            alt={`Foto de ${pj.name}`}
-            title={`Foto de ${pj.name}`}></img>
-          <h4 className="card__title">{pj.name}</h4>
-          <p className="card__description">{`${pj.species}/ ${pj.gender}`}</p>
-        </Link>
-      </li>
+      return selectHouse === searchPj.house;
     });
+
 
   useEffect(() => {
     localStorage.set('filterName', searchName);
@@ -77,9 +58,10 @@ function App() {
   // filtros
   const handleSearchName = (value) => {
     setSearchName(value)
+
   };
-  const handleSearchSelect = (ev) => {
-    setSelecHouse(ev.target.value)
+  const handleSearchSelect = (value) => {
+    setSelecHouse(value)
   }
 
   useEffect(() => {
@@ -93,8 +75,8 @@ function App() {
     <div>
       <Routes>
         <>
-          <Route path='/' element={<><Header />< Structure dataPj={dataPj} handleSearchName={handleSearchName} searchName={searchName} drawHtml={drawHtml} handleSearchSelect={handleSearchSelect} />  </>}></Route>
-          <Route path='/character/:characterId' element={<CardDetail dataPj={dataPj} drawHtml={drawHtml} characterFound={characterFound} />}></Route>
+          <Route path='/' element={<><Header />< Structure dataPj={filtersFunction} handleSearchName={handleSearchName} searchName={searchName} handleSearchSelect={handleSearchSelect} characterFound={characterFound} selectHouse={selectHouse} />  </>}></Route>
+          <Route path='/character/:characterId' element={<CardDetail dataPj={dataPj} filtersFunction={filtersFunction} characterFound={characterFound} />}></Route>
         </>
       </Routes>
 

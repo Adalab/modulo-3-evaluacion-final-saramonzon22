@@ -5,7 +5,7 @@ const hpData = () => {
 
             const hpDataClean = data.map((pj, index) => {
                 return {
-                    id: pj.actor,
+                    id: index,
                     name: pj.name,
                     gender: pj.gender,
                     picture: pj.image,
