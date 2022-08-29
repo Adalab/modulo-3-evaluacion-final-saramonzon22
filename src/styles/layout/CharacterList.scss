@@ -5,7 +5,25 @@
     align-items: center;
     gap: 10px;   
     padding-top: 10px;
+}
+.page-error {
+    display: flex;
+    height: 85vh;
+    justify-content: center;
+    align-items: center;
     
-    
-   
+}
+.error-p {
+    margin-top: 15px;
+    width: 400px;
+    background-image: url('../../images/git-mapa.gif');
+    background-position: top;
+    background-size: cover;
+    height: 40vh;
+    text-align: left;
+    padding: 30px;
+    border-radius: 25px;
+    align-self: baseline;
+    font-family: 'Varela Round', sans-serif;
+
 }

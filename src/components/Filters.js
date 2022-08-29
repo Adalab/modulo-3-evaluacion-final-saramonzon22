@@ -27,7 +27,7 @@ function Structure(props) {
                     <option value='none'>Without house</option>
                 </select>
             </form>
-            <CharacterList dataPj={props.dataPj} filtersFunction={props.filtersFunction} />
+            <CharacterList dataPj={props.dataPj} filtersFunction={props.filtersFunction} searchName={props.searchName} />
         </main>
     )
 }
