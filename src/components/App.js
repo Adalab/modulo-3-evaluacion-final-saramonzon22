@@ -18,6 +18,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 
 
 
+
 function App() {
 
   const [dataPj, setDataPj] = useState([]);
@@ -29,12 +30,12 @@ function App() {
   const [selectHouse, setSelecHouse] = useState('Gryffindor');
 
 
-  const { pathname } = useLocation();
+  const { pathname } = useLocation('/character/:characterId');
   const dataPath = matchPath('/character/:characterId', pathname);
 
   const characterId = dataPath !== null ? dataPath.params.characterId : null;
-  const characterFound = dataPj.find((pj) => {
-    return pj.id === parseInt(characterId);
+  const characterFound = dataPj.find(pj => {
+    return pj.id === characterId;
   });
 
   const filtersFunction = dataPj

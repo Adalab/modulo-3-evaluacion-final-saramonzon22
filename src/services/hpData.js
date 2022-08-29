@@ -1,3 +1,5 @@
+import { v4 as uuid } from 'uuid';
+
 const hpData = () => {
     return fetch('https://hp-api.herokuapp.com/api/characters')
         .then((response) => response.json())
@@ -5,7 +7,7 @@ const hpData = () => {
 
             const hpDataClean = data.map((pj, index) => {
                 return {
-                    id: index,
+                    id: uuid(),
                     name: pj.name,
                     gender: pj.gender,
                     picture: pj.image,
