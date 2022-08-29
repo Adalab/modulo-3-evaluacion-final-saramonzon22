@@ -82,7 +82,7 @@ function App() {
       <Routes>
         <>
           <Route path='/' element={<><Header />< Structure dataPj={filtersFunction} handleSearchName={handleSearchName} searchName={searchName} handleSearchSelect={handleSearchSelect} characterFound={characterFound} selectHouse={selectHouse} handleReset={handleReset} />  </>}></Route>
-          <Route path='/character/:characterId' element={<CardDetail dataPj={dataPj} filtersFunction={filtersFunction} characterFound={characterFound} />}></Route>
+          <Route path='/character/:characterId' element={<><Header /><CardDetail dataPj={dataPj} filtersFunction={filtersFunction} characterFound={characterFound} /></>}></Route>
         </>
       </Routes>
 
