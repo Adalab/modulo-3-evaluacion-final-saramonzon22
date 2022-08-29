@@ -1,5 +1,112 @@
+.page-detail {
+    width: 100%;
+    height: 100vh;
+    background-color: #BBCBCB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .one-card {
     display: flex;
     border: 1px red solid;
     width: 500px;
+    justify-content: space-evenly;
+    height: 250px;
+    align-items: center;
+    border-radius: 15px;
+
+        
+}
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.link-text {
+    text-decoration: none;
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.2rem;
+}
+.img-one-card {
+    border: 1px solid black;
+}
+.back {
+    margin: 20px;
+    border: black solid 1px;
+    padding: 15px;
+    text-transform: capitalize;
+    border-radius: 25px;
+    width: 50px;
+    text-align: center;
+    background-color: #7D8491;
+}
+.Gryffindor {
+    display: flex;
+    background-color: #890000;
+    width: 500px;
+    justify-content: space-evenly;
+    height: 300px;
+    align-items: center;
+    border-radius: 15px;
+    border: ridge 8px #fb7e00;
+    color: #ffa700;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+.alive {
+    display: flex;
+    gap: 5px;
+}
+.Hufflepuff {
+    display: flex;
+    background-color: #f0c75e;
+    width: 500px;
+    justify-content: space-evenly;
+    height: 300px;
+    align-items: center;
+    border-radius: 15px;
+    border: ridge 8px #726255;
+    font-family: 'Varela Round', sans-serif;
+
+}
+.Ravenclaw {
+    display: flex;
+    background-color: #1d2a54;
+    width: 500px;
+    justify-content: space-evenly;
+    height: 300px;
+    align-items: center;
+    border-radius: 15px;
+    border: ridge 8px #b8873d;
+    color: #b8873d;
+    text-transform: capitalize;
+    font-family: 'Varela Round', sans-serif;
+}
+.Slytherin {
+    display: flex;
+    background-color: #2a623d;
+    width: 500px;
+    justify-content: space-evenly;
+    height: 300px;
+    align-items: center;
+    border-radius: 15px;
+    border: ridge 8px #5d5d5d;
+    color: 	#aaaaaa;
+    text-transform: capitalize;
+    font-family: 'Varela Round', sans-serif;
+}
+.none {
+    display: flex;
+    background-color: #2d004d;
+    width: 500px;
+    justify-content: space-evenly;
+    height: 300px;
+    align-items: center;
+    border-radius: 15px;
+    border: ridge 8px #5d5d5d;
+    color: 	#aaaaaa;
+    text-transform: capitalize;
+    font-family: 'Varela Round', sans-serif;
 }

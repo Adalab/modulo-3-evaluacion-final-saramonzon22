@@ -10,9 +10,11 @@ const hpData = () => {
                     gender: pj.gender,
                     picture: pj.image,
                     species: pj.species,
-                    alternate_name: pj.alternate_names,
+                    alternateName: pj.alternate_names,
                     house: pj.house || "none",
                     alive: pj.alive,
+                    dateOfBirth: pj.dateOfBirth,
+
                 };
 
             });

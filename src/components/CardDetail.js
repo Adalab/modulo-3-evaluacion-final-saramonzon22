@@ -1,11 +1,21 @@
 import errorImage from '../images/defaultImg.jpg';
 import '../styles/layout/CardDetail.scss';
+import { Link, Route, Routes } from 'react-router-dom';
 
 function Detail(props) {
     console.log(props)
     const notImage = (image) => {
         return image === '' ? errorImage : props.characterFound.picture;
     };
+    /* const nickName = (alternateName) => {
+        if (alternateName === '') {
+            return <p className="card__description">Nickname: none</p>
+
+        }
+        else {
+            return <p className="card__description">Nickname:{props.characterFound.alternateName}</p>
+        }
+    } */
     const pjAlive = (alive) => {
         if (alive === true) {
             return (<p className="card__description">Alive <i class="fa-solid fa-heart"></i></p>)
@@ -16,21 +26,28 @@ function Detail(props) {
     }
 
     return (
-        <div className='one-card'>
-            <img
-                className="card__img"
-                src={notImage(props.characterFound.picture)}
-                alt={`Foto de ${props.characterFound.name}`}
-                title={`Foto de ${props.characterFound.name}`}></img>
-            <div>
-                <h4 className="title">{props.characterFound.name}</h4>
-                <p className="card__description">{`${props.characterFound.gender}`} </p>
-                <p className="card__description">{`${props.characterFound.species}`} </p>
-                <p className="card__description">{pjAlive(props.characterFound.alive)}</p>
-                <p className="card__description">{`${props.characterFound.house}`} </p>
-            </div>
+        <main className='page-detail'>
+            <Link to='/' className='link-text'><p className='back'>Back</p></Link>
+            <div className={(props.characterFound.house)}>
+                <img
+                    className="card__img img-one-card"
+                    src={notImage(props.characterFound.picture)}
+                    alt={`Foto de ${props.characterFound.name}`}
+                    title={`Foto de ${props.characterFound.name}`}></img>
+                <div className='detail-info'>
+                    <h4 className="title">{props.characterFound.name}</h4>
 
-        </div>
+                    <p className="card__description">Gender: {`${props.characterFound.gender}`} </p>
+                    <p className="card__description">Birth: {props.characterFound.dateOfBirth}</p>
+                    <p className="card__description alive">Status: {pjAlive(props.characterFound.alive)}</p>
+                    <p className="card__description">Species: {`${props.characterFound.species}`} </p>
+                    <p className="card__description">{props.characterFound.alternateName === '' ? 'Other name: none' : `Other name: ${props.characterFound.alternateName}`}</p>
+                    <p className="card__description">House: {`${props.characterFound.house}`} </p>
+
+                </div>
+
+            </div>
+        </main>
     )
 };
 

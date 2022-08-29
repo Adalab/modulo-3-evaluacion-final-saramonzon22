@@ -1,5 +1,5 @@
-import CharacterList from '../components/CharacterList';
-import PjItem from '../components/PjItem';
+import CharacterList from './CharacterList';
+import PjItem from './PjItem';
 import '../styles/layout/Page.scss';
 
 

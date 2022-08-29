@@ -4,7 +4,7 @@ import errorImage from '../images/defaultImg.jpg';
 import hpData from '../services/hpData';
 import localStorage from '../services/localStorage';
 // componentes
-import Structure from './Structure';
+import Structure from './Filters';
 import PjItem from '../components/PjItem';
 import CharacterList from '../components/CharacterList';
 import Header from '../components/Header';
