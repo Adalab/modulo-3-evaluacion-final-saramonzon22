@@ -9,13 +9,16 @@
     background: rgb(11,57,84);
     background: linear-gradient(180deg, #FFD07B 0%, #B1740F 100%);
     box-shadow: #8A95A5 10px 5px 5px;
-    gap: 10px;
     border-radius: 25px;
-
+    text-align: center;
+    
 }
 .card__img {
     width: 150px;
     height: 200px;
     border-radius: 10px;
     
+}
+.link-one {
+    color: black;
 }

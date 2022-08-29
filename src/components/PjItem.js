@@ -9,7 +9,7 @@ function PjItem(props) {
     };
 
     return <li key={props.index} className='card-li'>
-        <Link to={`/character/${props.character.id}`}>
+        <Link to={`/character/${props.character.id}`} className='link-one'>
             <img
                 className="card__img"
                 src={notImage(props.character.picture)}

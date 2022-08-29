@@ -11,13 +11,17 @@ function Structure(props) {
     const handleSearchSelect = (ev) => {
         props.handleSearchSelect(ev.target.value)
     }
-
+    const noEnterKey = (ev) => {
+        if (ev.keyCode === 13) {
+            ev.preventDefault();
+        }
+    }
 
     return (
         <main className='page'>
             <form className='search-filter'>
                 <label id='name' name='name' className='text-search'>search for character</label>
-                <input className='search-bar' type='text' placeholder='Write your fav!' onChange={handleSearch} value={props.searchName}></input>
+                <input className='search-bar' type='text' placeholder='Write your fav!' onChange={handleSearch} value={props.searchName} onKeyDown={noEnterKey}></input>
                 <label id='name' name='name' className='text-search'>search for house</label>
                 <select name='house' id='house' className='select-search' onChange={handleSearchSelect} value={props.selectHouse}>
                     <option value='Gryffindor'>Gryffindor</option>
