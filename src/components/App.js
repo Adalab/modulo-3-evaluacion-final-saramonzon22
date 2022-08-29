@@ -8,12 +8,12 @@ import Structure from './Structure';
 import PjItem from '../components/PjItem';
 import CharacterList from '../components/CharacterList';
 import Header from '../components/Header';
-import Detail from './CharacterDetail';
+import CardDetail from './CardDetail';
 // hooks
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
 import { useLocation, matchPath } from 'react-router';
 import { useParams } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 
 
 
@@ -29,7 +29,13 @@ function App() {
   const [selectHouse, setSelecHouse] = useState('Gryffindor');
 
 
+  const { pathname } = useLocation();
+  const dataPath = matchPath('/character/:characterId', pathname);
 
+  const characterId = dataPath !== null ? dataPath.params.characterId : null;
+  const characterFound = dataPj.find((pj) => {
+    return pj.id === characterId;
+  });
 
   const drawHtml = dataPj
 
@@ -52,13 +58,15 @@ function App() {
         return image === '' ? errorImage : pj.picture
       };
       return <li key={index} className='card-li'>
-        <img
-          className="card__img"
-          src={notImage(pj.picture)}
-          alt={`Foto de ${pj.name}`}
-          title={`Foto de ${pj.name}`}></img>
-        <h4 className="card__title">{pj.name}</h4>
-        <p className="card__description">{`${pj.species}/ ${pj.gender}`}</p>
+        <Link to={`/character/${pj.id}`}>
+          <img
+            className="card__img"
+            src={notImage(pj.picture)}
+            alt={`Foto de ${pj.name}`}
+            title={`Foto de ${pj.name}`}></img>
+          <h4 className="card__title">{pj.name}</h4>
+          <p className="card__description">{`${pj.species}/ ${pj.gender}`}</p>
+        </Link>
       </li>
     });
 
@@ -86,7 +94,7 @@ function App() {
       <Routes>
         <>
           <Route path='/' element={<><Header />< Structure dataPj={dataPj} handleSearchName={handleSearchName} searchName={searchName} drawHtml={drawHtml} handleSearchSelect={handleSearchSelect} />  </>}></Route>
-          <Route path='/CharacterDetail/:CharacterId' element={<Detail dataPj={dataPj} drawHtml={drawHtml} />}></Route>
+          <Route path='/character/:characterId' element={<CardDetail dataPj={dataPj} drawHtml={drawHtml} characterFound={characterFound} />}></Route>
         </>
       </Routes>
 

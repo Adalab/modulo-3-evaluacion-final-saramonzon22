@@ -3,12 +3,14 @@ const hpData = () => {
         .then((response) => response.json())
         .then((data) => {
 
-            const hpDataClean = data.map((pj) => {
+            const hpDataClean = data.map((pj, index) => {
                 return {
+                    id: pj.actor,
                     name: pj.name,
                     gender: pj.gender,
                     picture: pj.image,
                     species: pj.species,
+                    alternate_name: pj.alternate_names,
                     house: pj.house || "none",
                     alive: pj.alive,
                 };

@@ -2,9 +2,9 @@ import errorImage from '../images/defaultImg.jpg';
 import '../styles/layout/CardDetail.scss';
 
 function Detail(props) {
-
+    console.log(props)
     const notImage = (image) => {
-        return image === '' ? errorImage : props.character.picture;
+        return image === '' ? errorImage : props.characterFound.picture;
     };
     const pjAlive = (alive) => {
         if (alive === true) {
@@ -19,15 +19,15 @@ function Detail(props) {
         <div className='one-card'>
             <img
                 className="card__img"
-                src={notImage(props.character.picture)}
-                alt={`Foto de ${props.character.name}`}
-                title={`Foto de ${props.character.name}`}></img>
+                src={notImage(props.characterFound.picture)}
+                alt={`Foto de ${props.characterFound.name}`}
+                title={`Foto de ${props.characterFound.name}`}></img>
             <div>
-                <h4 className="title">{props.character.name}</h4>
-                <p className="card__description">{`${props.character.gender}`} </p>
-                <p className="card__description">{`${props.character.species}`} </p>
-                <p className="card__description">{pjAlive(props.character.alive)}</p>
-                <p className="card__description">{`${props.character.house}`} </p>
+                <h4 className="title">{props.characterFound.name}</h4>
+                <p className="card__description">{`${props.characterFound.gender}`} </p>
+                <p className="card__description">{`${props.characterFound.species}`} </p>
+                <p className="card__description">{pjAlive(props.characterFound.alive)}</p>
+                <p className="card__description">{`${props.characterFound.house}`} </p>
             </div>
 
         </div>
