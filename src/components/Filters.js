@@ -26,6 +26,7 @@ function Structure(props) {
                     <option value='Slytherin'>Slytherin</option>
                     <option value='none'>Without house</option>
                 </select>
+                <button className='reset' onClick={props.handleReset}>Reset</button>
             </form>
             <CharacterList dataPj={props.dataPj} filtersFunction={props.filtersFunction} searchName={props.searchName} />
         </main>

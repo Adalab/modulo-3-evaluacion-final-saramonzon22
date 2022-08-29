@@ -50,7 +50,13 @@ function App() {
       return selectHouse === searchPj.house;
     });
 
+  const handleReset = (ev) => {
+    ev.preventDefault();
+    handleSearchName('');
+    handleSearchSelect('Gryffindor');
 
+
+  }
   useEffect(() => {
     localStorage.set('filterName', searchName);
   }, [searchName]);
@@ -75,7 +81,7 @@ function App() {
     <div>
       <Routes>
         <>
-          <Route path='/' element={<><Header />< Structure dataPj={filtersFunction} handleSearchName={handleSearchName} searchName={searchName} handleSearchSelect={handleSearchSelect} characterFound={characterFound} selectHouse={selectHouse} />  </>}></Route>
+          <Route path='/' element={<><Header />< Structure dataPj={filtersFunction} handleSearchName={handleSearchName} searchName={searchName} handleSearchSelect={handleSearchSelect} characterFound={characterFound} selectHouse={selectHouse} handleReset={handleReset} />  </>}></Route>
           <Route path='/character/:characterId' element={<CardDetail dataPj={dataPj} filtersFunction={filtersFunction} characterFound={characterFound} />}></Route>
         </>
       </Routes>
