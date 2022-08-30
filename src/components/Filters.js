@@ -11,6 +11,9 @@ function Structure(props) {
     const handleSearchSelect = (ev) => {
         props.handleSearchSelect(ev.target.value)
     }
+    const handleGender = (ev) => {
+        props.handleGender(ev.target.value)
+    }
     const noEnterKey = (ev) => {
         if (ev.keyCode === 13) {
             ev.preventDefault();
@@ -29,6 +32,11 @@ function Structure(props) {
                     <option value='Ravenclaw'>Ravenclaw</option>
                     <option value='Slytherin'>Slytherin</option>
                     <option value='none'>Without house</option>
+                </select>
+                <select name='gender' className='gender-search' id='gender' onChange={handleGender} value={props.genderSearch}>
+                    <option value='male'>Male</option>
+                    <option value='female'>Female</option>
+                    <option value=''>All</option>
                 </select>
                 <button className='reset' onClick={props.handleReset}>Reset</button>
             </form>

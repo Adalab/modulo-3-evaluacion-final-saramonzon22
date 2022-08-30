@@ -5,7 +5,7 @@ import localStorage from '../services/localStorage';
 // componentes
 import Structure from './Filters';
 import Header from '../components/Header';
-import CardDetail from './CardDetail';
+import CardDetail from './CharacterCard';
 // hooks
 import { useEffect, useState } from 'react';
 import { useLocation, matchPath } from 'react-router';
@@ -23,6 +23,7 @@ function App() {
   });
   const [searchName, setSearchName] = useState(localStorage.get('filterName') || '');
   const [selectHouse, setSelecHouse] = useState('Gryffindor');
+  const [genderSearch, setGenderSearch] = useState('');
 
   // obtener id de la ruta
   const { pathname } = useLocation('/character/:characterId');
@@ -56,6 +57,12 @@ function App() {
         return true;
       }
       return selectHouse === searchPj.house;
+    })
+    .filter((searchPj) => {
+      if (genderSearch === '') {
+        return true;
+      }
+      return genderSearch === searchPj.gender;
     });
 
 
@@ -80,6 +87,9 @@ function App() {
   const handleSearchSelect = (value) => {
     setSelecHouse(value)
   }
+  const handleGender = (value) => {
+    setGenderSearch(value)
+  }
 
   // datos de la api  
   useEffect(() => {
@@ -93,7 +103,7 @@ function App() {
     <div>
       <Routes>
         <>
-          <Route path='/' element={<><Header />< Structure dataPj={filtersFunction} handleSearchName={handleSearchName} searchName={searchName} handleSearchSelect={handleSearchSelect} characterFound={characterFound} selectHouse={selectHouse} handleReset={handleReset} />  </>}></Route>
+          <Route path='/' element={<><Header />< Structure dataPj={filtersFunction} handleSearchName={handleSearchName} searchName={searchName} handleSearchSelect={handleSearchSelect} characterFound={characterFound} selectHouse={selectHouse} handleReset={handleReset} genderSearch={genderSearch} handleGender={handleGender} /></>}></Route>
           <Route path='/character/:characterId' element={<><Header /><CardDetail dataPj={dataPj} filtersFunction={filtersFunction} characterFound={characterFound} /></>}></Route>
         </>
       </Routes>

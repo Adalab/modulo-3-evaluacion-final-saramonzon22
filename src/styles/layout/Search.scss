@@ -1,11 +1,16 @@
 .search-filter {
     margin: 15px;
-    align-self: center;
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Varela Round', sans-serif;
+@media all and (min-width:1024px){
+    display: flex;
+    align-self: center;
     gap: 10px;
     align-items: center;
-    font-family: 'Varela Round', sans-serif;
-
+    flex-direction: row;
+}
     
 }
 .search-bar {

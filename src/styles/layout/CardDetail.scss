@@ -9,13 +9,13 @@
 .one-card {
     display: flex;
     border: 1px red solid;
-    width: 500px;
     justify-content: space-evenly;
-    height: 250px;
     align-items: center;
     border-radius: 15px;
-
-        
+    @media all and (min-width:1024px){
+      width: 500px; 
+      height: 250px; 
+}
 }
 .detail-info {
     display: flex;
@@ -34,19 +34,20 @@
 .back {
     margin-right: 5px;
     border: black solid 1px;
-    padding: 15px;
     text-transform: capitalize;
-    border-radius: 25px;
-    width: 50px;
     text-align: center;
     background-color: #7D8491;
+    width: 50px;
+    padding: 15px;
+    border-radius: 25px;
 }
+
 .Gryffindor {
     display: flex;
     background-color: #890000;
-    width: 500px;
+    width: 250px;
+    height: 200px;
     justify-content: space-evenly;
-    height: 300px;
     align-items: center;
     border-radius: 15px;
     border: ridge 8px #fb7e00;
@@ -54,6 +55,9 @@
     font-family: 'Varela Round', sans-serif;
     font-size: 1rem;
     text-transform: capitalize;
+    @media all and (min-width:1024px){
+    width: 500px;
+    height: 300px;}
 }
 .alive {
     display: flex;

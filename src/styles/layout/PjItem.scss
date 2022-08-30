@@ -1,7 +1,7 @@
 .card-li {
     border: #9590A8 solid 2px;
-    width: 200px;  
-    height: 300px;
+    width: 150px;
+    height: 200px;
     display: flex;  
     flex-direction: column;  
     justify-content: center;
@@ -11,13 +11,21 @@
     box-shadow: #8A95A5 10px 5px 5px;
     border-radius: 25px;
     text-align: center;
-    
+    @media all and (min-width:1024px){ 
+    width: 200px;  
+    height: 300px;
+}
 }
 .card__img {
+    width: 80px;
+    height: 100px;
+    border-radius: 10px;
+
+@media all and (min-width:1024px){
     width: 150px;
     height: 200px;
     border-radius: 10px;
-    
+}   
 }
 .link-one {
     color: black;

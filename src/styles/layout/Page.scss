@@ -4,12 +4,18 @@
     background-color: #BFD7EA;
     display: flex;
     flex-direction: column;
-    height: 90vh;
-
+    min-height: 90vh;
 }
 .reset {
     width: 60px;
     height: 30px;
     border-radius: 25px;
     font-family: 'Varela Round', sans-serif;
+}
+.gender-search {
+    width: 70px;
+    height: 30px;
+    border-radius: 25px;
+    font-family: 'Varela Round', sans-serif;
+    text-align: center;
 }

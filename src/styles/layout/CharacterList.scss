@@ -1,11 +1,14 @@
 .cards {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: center;
     gap: 10px;   
     padding-top: 10px;
     font-family: 'Varela Round', sans-serif;
+@media all and (min-width:1024px){
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
 }
 .page-error {
     display: flex;
