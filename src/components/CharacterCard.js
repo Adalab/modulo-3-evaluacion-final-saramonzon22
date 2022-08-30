@@ -53,12 +53,12 @@ Detail.defaultProps = {
 };
 
 Detail.propTypes = {
-    name: PropTypes.string.isRequired,
-    species: PropTypes.string.isRequired,
-    gender: PropTypes.string.isRequired,
-    house: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    name: PropTypes.string,
+    species: PropTypes.string,
+    gender: PropTypes.string,
+    house: PropTypes.string,
+    status: PropTypes.string,
+    image: PropTypes.string,
 };
 
 export default Detail;
