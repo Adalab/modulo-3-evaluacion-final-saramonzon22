@@ -1,5 +1,6 @@
 import PjItem from "./PjItem";
 import '../styles/layout/CharacterList.scss';
+import PropTypes from 'prop-types';
 
 
 
@@ -27,6 +28,9 @@ function CharacterList(props) {
             {errorPj()}
         </section >
     );
+};
+PjItem.propTypes = {
+    character: PropTypes.object,
 };
 
 export default CharacterList;
