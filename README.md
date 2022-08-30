@@ -8,6 +8,12 @@ If you don't know their name, you can search by gender, by house, by last name..
 When you find who you are looking for, click and you will see a detailed record of that character
 Never again will we forget a birthday or which house Parvati Patil belongs to! :raised_hands:
 
+## How it works
+
+When we enter the default page we get the characters belonging to the house of Gryffindor. If we search by name, only those that belong to the one selected in the House input will be filtered. If by any chance we enter a wrong character and click on the Back button, it returns us to the search that was in progress, since these searches are saved in the localStorage.
+
+When entering each character, the information that we can consult about him increases, coloring the card with the color corresponding to the house to which he belongs and some other information that I let you discover... :skull:
+
 ## Try your self!
 
 This project has been done in React :speech_balloon:. If you want to test the code you can clone it on your computer, but remember for it to work you need to do an
