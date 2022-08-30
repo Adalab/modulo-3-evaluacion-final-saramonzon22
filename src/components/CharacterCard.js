@@ -1,6 +1,5 @@
 import errorImage from '../images/defaultImg.jpg';
 import '../styles/layout/CardDetail.scss';
-import { Link, Route, Routes } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function Detail(props) {
@@ -16,10 +15,13 @@ function Detail(props) {
             return <p className="card__description">Dead <i class="fa-solid fa-skull-crossbones"></i></p>
         }
     }
+    const handleBack = () => {
+        window.history.back();
+    }
 
     return (
         <main className='page-detail'>
-            <Link to='/' className='link-text'><p className='back'>Back</p></Link>
+            <button onClick={handleBack} className='link-text'><span className='back'>Back</span></button>
             <div className={(props.characterFound.house)}>
                 <img
                     className="card__img img-one-card"
