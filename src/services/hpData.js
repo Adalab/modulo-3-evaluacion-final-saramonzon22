@@ -1,5 +1,3 @@
-import { v4 as uuid } from 'uuid';
-
 const hpData = () => {
     return fetch('https://hp-api.herokuapp.com/api/characters')
         .then((response) => response.json())
@@ -7,7 +5,7 @@ const hpData = () => {
 
             const hpDataClean = data.map((pj, index) => {
                 return {
-                    id: uuid(),
+                    id: index,
                     name: pj.name,
                     gender: pj.gender,
                     picture: pj.image,
@@ -20,7 +18,7 @@ const hpData = () => {
                 };
 
             });
-            console.log(hpDataClean);
+
             return hpDataClean;
         });
 };

@@ -9,10 +9,10 @@ function Detail(props) {
     };
     const pjAlive = (alive) => {
         if (alive === true) {
-            return (<p className="card__description">Alive <i class="fa-solid fa-heart"></i></p>)
+            return (<p className="card__description">Alive <i className="fa-solid fa-heart"></i></p>)
         }
         else {
-            return <p className="card__description">Dead <i class="fa-solid fa-skull-crossbones"></i></p>
+            return <p className="card__description">Dead <i className="fa-solid fa-skull-crossbones"></i></p>
         }
     }
     const handleBack = () => {

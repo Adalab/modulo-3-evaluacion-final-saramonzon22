@@ -17,7 +17,7 @@ function App() {
 
   // variables de estado
 
-  const [dataPj, setDataPj] = useState([]);
+  const [dataPj, setDataPj] = useState(localStorage.get('dataPj', []));
   const [userSearch, setUserSearch] = useState({
     name: '',
     species: '',
@@ -32,7 +32,7 @@ function App() {
 
   const characterId = dataPath !== null ? dataPath.params.characterId : null;
   const characterFound = dataPj.find(pj => {
-    return pj.id === characterId;
+    return pj.id === parseInt(characterId);
   });
 
   // filtros
@@ -95,6 +95,7 @@ function App() {
   // datos de la api  
   useEffect(() => {
     hpData().then((dataFromHp) => {
+      localStorage.set('dataPj', dataFromHp)
       setDataPj(dataFromHp);
     })
   }, []);
