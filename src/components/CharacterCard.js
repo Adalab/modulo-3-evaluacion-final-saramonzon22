@@ -1,21 +1,13 @@
 import errorImage from '../images/defaultImg.jpg';
 import '../styles/layout/CardDetail.scss';
 import { Link, Route, Routes } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function Detail(props) {
     console.log(props)
     const notImage = (image) => {
         return image === '' ? errorImage : props.characterFound.picture;
     };
-    /* const nickName = (alternateName) => {
-        if (alternateName === '') {
-            return <p className="card__description">Nickname: none</p>
-
-        }
-        else {
-            return <p className="card__description">Nickname:{props.characterFound.alternateName}</p>
-        }
-    } */
     const pjAlive = (alive) => {
         if (alive === true) {
             return (<p className="card__description">Alive <i class="fa-solid fa-heart"></i></p>)
@@ -49,6 +41,24 @@ function Detail(props) {
             </div>
         </main>
     )
+
+};
+Detail.defaultProps = {
+    name: '',
+    status: '',
+    species: '',
+    gender: '',
+    house: '',
+    image: errorImage,
+};
+
+Detail.propTypes = {
+    name: PropTypes.string.isRequired,
+    species: PropTypes.string.isRequired,
+    gender: PropTypes.string.isRequired,
+    house: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
 };
 
 export default Detail;

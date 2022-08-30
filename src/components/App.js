@@ -10,6 +10,7 @@ import CardDetail from './CharacterCard';
 import { useEffect, useState } from 'react';
 import { useLocation, matchPath } from 'react-router';
 import { Routes, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 function App() {
