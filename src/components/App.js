@@ -1,25 +1,20 @@
 import '../styles/App.scss';
-import errorImage from '../images/defaultImg.jpg';
 // api
 import hpData from '../services/hpData';
 import localStorage from '../services/localStorage';
 // componentes
 import Structure from './Filters';
-import PjItem from '../components/PjItem';
-import CharacterList from '../components/CharacterList';
 import Header from '../components/Header';
 import CardDetail from './CardDetail';
 // hooks
 import { useEffect, useState } from 'react';
 import { useLocation, matchPath } from 'react-router';
-import { useParams } from 'react-router-dom';
-import { Link, Route, Routes } from 'react-router-dom';
-
-
-
+import { Routes, Route } from 'react-router-dom';
 
 
 function App() {
+
+  // variables de estado
 
   const [dataPj, setDataPj] = useState([]);
   const [userSearch, setUserSearch] = useState({
@@ -29,7 +24,7 @@ function App() {
   const [searchName, setSearchName] = useState(localStorage.get('filterName') || '');
   const [selectHouse, setSelecHouse] = useState('Gryffindor');
 
-
+  // obtener id de la ruta
   const { pathname } = useLocation('/character/:characterId');
   const dataPath = matchPath('/character/:characterId', pathname);
 
@@ -38,7 +33,19 @@ function App() {
     return pj.id === characterId;
   });
 
+  // filtros
+
   const filtersFunction = dataPj
+    .sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    })
 
     .filter((searchPj) => {
       return searchPj.name.toLowerCase().includes(searchName.toLowerCase())
@@ -51,18 +58,21 @@ function App() {
       return selectHouse === searchPj.house;
     });
 
+
+
+  // reset 
   const handleReset = (ev) => {
     ev.preventDefault();
     handleSearchName('');
     handleSearchSelect('Gryffindor');
 
-
+    // localStorage de filtros 
   }
   useEffect(() => {
     localStorage.set('filterName', searchName);
   }, [searchName]);
 
-  // filtros
+  // manejadora filtros
   const handleSearchName = (value) => {
     setSearchName(value)
 
@@ -71,6 +81,7 @@ function App() {
     setSelecHouse(value)
   }
 
+  // datos de la api  
   useEffect(() => {
     hpData().then((dataFromHp) => {
       setDataPj(dataFromHp);
