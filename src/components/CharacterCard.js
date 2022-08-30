@@ -46,21 +46,27 @@ function Detail(props) {
 
 };
 Detail.defaultProps = {
+    image: errorImage,
     name: '',
+    gender: '',
+    dateOfBirth: '',
     status: '',
     species: '',
-    gender: '',
+    alternateName: '',
     house: '',
-    image: errorImage,
+
 };
 
 Detail.propTypes = {
-    name: PropTypes.string,
-    species: PropTypes.string,
-    gender: PropTypes.string,
-    house: PropTypes.string,
-    status: PropTypes.string,
     image: PropTypes.string,
+    name: PropTypes.string,
+    gender: PropTypes.string,
+    dateOfBirth: PropTypes.string,
+    status: PropTypes.string,
+    species: PropTypes.string,
+    alternateName: PropTypes.string,
+    house: PropTypes.string,
+
 };
 
 export default Detail;

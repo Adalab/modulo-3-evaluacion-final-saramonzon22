@@ -1,4 +1,5 @@
 import CardDetail from './CardDetail';
+import PropTypes from 'prop-types';
 
 
 function CharacterDetail(props) {
@@ -19,5 +20,8 @@ function CharacterDetail(props) {
     );
     ;
 }
+CardDetail.propTypes = {
+    character: PropTypes.object,
+};
 
 export default CharacterDetail;
