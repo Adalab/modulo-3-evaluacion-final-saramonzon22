@@ -19,6 +19,9 @@ function Structure(props) {
             ev.preventDefault();
         }
     }
+    const handleName = (ev) => {
+        props.handleName(ev.target.value)
+    }
 
     return (
         <main className='page'>
@@ -39,6 +42,8 @@ function Structure(props) {
                     <option value=''>All</option>
                 </select>
                 <button className='reset' onClick={props.handleReset}>Reset</button>
+                <label id='others' name='others'>alternateName</label>
+                <input id='others' name='others' type='number' value={props.otherName} onChange={handleName}></input>
             </form>
             <CharacterList dataPj={props.dataPj} filtersFunction={props.filtersFunction} searchName={props.searchName} />
         </main>

@@ -25,6 +25,7 @@ function App() {
   const [searchName, setSearchName] = useState(localStorage.get('filterName') || '');
   const [selectHouse, setSelecHouse] = useState('Gryffindor');
   const [genderSearch, setGenderSearch] = useState('');
+  const [otherName, setOtherName] = useState(0);
 
   // obtener id de la ruta
   const { pathname } = useLocation('/character/:characterId');
@@ -64,7 +65,13 @@ function App() {
         return true;
       }
       return genderSearch === searchPj.gender;
-    });
+    })
+    .filter((searchPj) => {
+      const alternateNamesArray = searchPj.alternateName.length;
+      return alternateNamesArray === parseInt(otherName);
+    })
+
+
 
 
 
@@ -73,6 +80,7 @@ function App() {
     ev.preventDefault();
     handleSearchName('');
     handleSearchSelect('Gryffindor');
+
 
     // localStorage de filtros 
   }
@@ -91,6 +99,9 @@ function App() {
   const handleGender = (value) => {
     setGenderSearch(value)
   }
+  const handleName = (value) => {
+    setOtherName(value)
+  }
 
   // datos de la api  
   useEffect(() => {
@@ -105,7 +116,7 @@ function App() {
     <div>
       <Routes>
         <>
-          <Route path='/' element={<><Header />< Structure dataPj={filtersFunction} handleSearchName={handleSearchName} searchName={searchName} handleSearchSelect={handleSearchSelect} characterFound={characterFound} selectHouse={selectHouse} handleReset={handleReset} genderSearch={genderSearch} handleGender={handleGender} /></>}></Route>
+          <Route path='/' element={<><Header />< Structure dataPj={filtersFunction} handleSearchName={handleSearchName} searchName={searchName} handleSearchSelect={handleSearchSelect} characterFound={characterFound} selectHouse={selectHouse} handleReset={handleReset} genderSearch={genderSearch} handleGender={handleGender} handleName={handleName} otherName={otherName} /></>}></Route>
           <Route path='/character/:characterId' element={<><Header /><CardDetail dataPj={dataPj} filtersFunction={filtersFunction} characterFound={characterFound} /></>}></Route>
         </>
       </Routes>
